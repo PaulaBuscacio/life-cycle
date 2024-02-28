@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Item } from 'src/app/interfaces/iItem';
+import { ListaDeCompraService } from 'src/app/service/lista-de-compra.service';
 
 @Component({
   selector: 'app-item',
@@ -10,10 +11,10 @@ import { Item } from 'src/app/interfaces/iItem';
 export class ItemComponent implements OnInit, OnChanges {
   @Input() item!: Item
   @Output() emitindoItemParaEditar =  new EventEmitter()
-  faPen = faPen;
+  faPen = faPen
   faTrash = faTrash
 
-  constructor() { }
+  constructor(private listaDeComprasService : ListaDeCompraService) { }
 
   ngOnInit(): void {}
 
@@ -23,5 +24,11 @@ export class ItemComponent implements OnInit, OnChanges {
     this.emitindoItemParaEditar.emit(this.item)
 
   }
+
+  marcarComprado(){
+    this.listaDeComprasService.mudarComprado(this.item)
+
+  }
+
 
 }
