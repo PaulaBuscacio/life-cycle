@@ -51,6 +51,6 @@ export class ListaDeCompraService {
 
   mudarComprado(item : Item)  {
     item.comprado = !item.comprado
-    this.listaDeCompra.splice(Number(item.id)-1,1,item)
   }
+
 }

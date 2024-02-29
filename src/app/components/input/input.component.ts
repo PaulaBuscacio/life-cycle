@@ -41,4 +41,6 @@ export class InputComponent implements OnInit, OnChanges {
     this.editando = false
     this.textoBtn = 'Salvar item'
   }
+
+
 }
