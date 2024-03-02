@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Item } from './interfaces/iItem';
 import { ListaDeCompraService } from './service/lista-de-compra.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent implements OnInit, DoCheck{
   title = 'app-lista-de-compras';
   listaDeCompra! : Array<Item>
   itemParaSerEditado! : Item
+  unsubscribe : Subject<void> = new Subject<void>
 
   constructor(private listaService : ListaDeCompraService) { }
 
@@ -33,7 +35,9 @@ export class AppComponent implements OnInit, DoCheck{
   }
 
   limparLista(){
-    this.listaDeCompra = []
-  }
+   this.listaDeCompra = []
+   console.log(this.listaDeCompra)
+
+   }
 
 }

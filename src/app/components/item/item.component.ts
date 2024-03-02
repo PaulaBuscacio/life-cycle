@@ -36,10 +36,6 @@ export class ItemComponent implements OnInit, OnChanges, OnDestroy {
 
   }
 
-  deletarLista() {
-
-  }
-
   ngOnDestroy(){
     console.log('item deletado ')
   }
