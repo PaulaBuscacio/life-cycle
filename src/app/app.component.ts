@@ -18,11 +18,11 @@ export class AppComponent implements OnInit, DoCheck{
 
   ngOnInit(): void {
     this.listaDeCompra = this.listaService.getListaDeCompra()
-    console.log(this.listaDeCompra)
+    this.listaService.atualizarLocalStorage()
   }
 
   ngDoCheck() {
-    this.listaService.atualizarLocalStorage()
+  //  this.listaService.atualizarLocalStorage()  //se deixar nao apaga o local srtorage por isso foi para o onInit
   }
 
   editarItem(item : Item){
@@ -35,9 +35,11 @@ export class AppComponent implements OnInit, DoCheck{
   }
 
   limparLista(){
+   this.listaService.limparLocalStorage()
    this.listaDeCompra = []
-   console.log(this.listaDeCompra)
+   window.location.reload()
 
-   }
+
+  }
 
 }
